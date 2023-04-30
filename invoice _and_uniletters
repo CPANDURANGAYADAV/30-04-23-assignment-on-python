@@ -1,0 +1,78 @@
+# 1 st question answer program
+
+def User_Qty(Book,price):
+    Qty=[]
+    print("Require Quantity of Books :")
+    for i in range(3):
+        print("Book",i+1," : ",Book[i]," : Rs ",price[i]," : ",end='')
+        Qty.append(int(input()))
+    return Qty
+def print_border():
+    print(" ",end='')
+    for i in range(73):
+        print("-",end='')
+    print(" ")
+def in_table(s,s1):
+    for i in range(len(s1)):
+        print(s1[i],end='')
+    for i in range(len(s1),len(s)):
+        print(" ",end='')
+    print(" | ",end='')
+def table_values(Book,Qty,price,netamt):
+    for i in range(3):
+        print("| ","   {}   | ".format(i+1),end='')
+        in_table(Book[0],Book[i])
+        in_table("Qty",str(Qty[i]))
+        in_table("Price",str(price[i]))
+        in_table("Net amount",str(netamt[i]))
+        print()
+def print_total(total):
+    print("|",end='')
+    for i in range(72-len(total)):
+        print(" ",end='')
+    for i in total:
+        print(i,end='')
+    print(" |")
+Book1="Introduction to python programming"
+Book2="Python Libraries Cookbook         "
+Book3="Data science in python            "
+Book=[Book1,Book2,Book3]
+price=[499.00,855.00,645.00]
+Qty=User_Qty(Book,price)
+netamt=[price[i]*Qty[i] for i in range(3)]
+print_border()
+print("| ",end='')
+in_table(" SI NO."," SI NO.")
+in_table(Book[0],"Book Name")
+in_table("Qty","Qty")
+in_table("price","price")
+in_table("Net amount","Net amount")
+print()
+print_border()
+table_values(Book,Qty,price,netamt)
+print_border()
+total="Total amount = "+str(sum(netamt))
+total_gstadelc="Including Gst(12%) and Delivery charge(250) Total amount = "+str(int((1.12)*sum(netamt))+250)
+print_total(total)
+print_total(total_gstadelc)
+print_border()
+
+
+# 2nd Question answer
+st=input("Input : string1: ")
+t=st.lower()
+s=[i for i in t]
+k=""
+for i in range(len(s)):
+		for j in range(i+1,len(s)):
+			if(s[i]==s[j]):
+				s[j]=''
+		k=k+s[i]
+print("Output : uniqueLetters = ",end='')
+for i in range(len(k)):
+	if(i==len(k)-1):
+		print(k[i])
+	else:
+		print(k[i],",",end='')
+
+
